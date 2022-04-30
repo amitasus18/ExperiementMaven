@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent none
     tools{
         jdk 'JAVA_HOME'
         maven 'mymaven'
@@ -28,6 +28,7 @@ pipeline{
         }
         }
         stage('PACKAGE'){
+            agent {label 'Test-Server'}
         steps{
           script{
             echo "Package the app"
