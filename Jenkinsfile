@@ -5,7 +5,8 @@ pipeline{
         maven 'mymaven'
     }
     stages{
-        stage('Compile'){        
+        stage('Compile'){   
+            agent any     
             steps{
                 script{
                     echo "Building the code"
@@ -15,6 +16,7 @@ pipeline{
             }
         
         stage('Test'){
+            agent any
          steps {
             script{
                 echo "Testing the Code"
