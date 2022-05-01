@@ -24,7 +24,7 @@ pipeline{
             script{
                 sshagent(['TEST_SERVER']){
                     echo "Testing the code"
-                    sh "ssh -o StrictHostKeyChecking=no server-script.sh ${TEST_SERVER_IP}:/home/ec2-user"
+                    sh "scp -o StrictHostKeyChecking=no server-script.sh ${TEST_SERVER_IP}:/home/ec2-user"
                     sh "ssh -o StrictHostKeyChecking=no ${TEST_SERVER_IP} 'bash ~/server-script.sh' "
                     sh 'mvn test'
                 }
