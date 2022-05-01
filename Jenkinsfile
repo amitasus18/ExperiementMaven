@@ -8,17 +8,17 @@ pipeline{
         TEST_SERVER_IP='ec2-user@172.31.28.36'
     }
     stages{
-        stage('Compile'){   
+        stage('MPDP-Compile'){   
             agent any     
             steps{
                 script{
-                    echo "Building the code"
+                    echo "MPDP - Building the code"
                     sh 'mvn compile'
                  }   
                 }
             }
         
-        stage('Test'){
+        stage('MPDP-Test'){
             agent any
          steps {
             script{
@@ -36,7 +36,7 @@ pipeline{
             }
         }
         }
-        stage('PACKAGE'){
+        stage('MPDP-PACKAGE'){
             agent {label 'Test-Server'}
         steps{
           script{
