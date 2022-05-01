@@ -22,15 +22,13 @@ pipeline{
             agent any
          steps {
             script{
-                sshagent(['TEST_SERVER']){
+                sshagent(['Test_Server']){
                     echo "Testing the code"
                     sh "scp -o StrictHostKeyChecking=no server-script.sh ${TEST_SERVER_IP}:/home/ec2-user"
                     sh "ssh -o StrictHostKeyChecking=no ${TEST_SERVER_IP} 'bash ~/server-script.sh' "
                     sh 'mvn test'
                 }
-                echo "Testing the Code"
-                sh 'mvn test'
-            }
+                }
         }
         post {
             always{
