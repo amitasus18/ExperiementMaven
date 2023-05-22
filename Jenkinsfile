@@ -5,7 +5,7 @@ pipeline{
         maven 'mymaven'
     }
     environment{
-        TEST_SERVER_IP='ec2-user@172.31.28.36'
+        TEST_SERVER_IP='ec2-user@172.31.9.167'
     }
     stages{
         stage('MPDP-Compile'){   
